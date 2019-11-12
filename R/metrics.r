@@ -111,7 +111,7 @@ get_random_woc_performance <- function(summa,true_val,nrandom=50)
 
 calculate_auc <- function(predict, true_val)
 {
-roc_obj <- pROC::roc(true_val, predict,direction=">")
+roc_obj <- suppressMessages( pROC::roc(true_val, predict,direction=">"))
 auc=roc_obj$auc[1]
 return(auc)
 }
